@@ -3,18 +3,18 @@
 
  si c'es null, c'est que le chemin n'est pas bon
 
- je modifie $siblings pour voir si ça marche ...
+ je modifie $siblings pour voir si Ã§a marche ...
  oui avec function, non avec object
 
- notre programme ne retient pas le dernier parcours et recommence toujours le meme à cause de $sibling
- $sibling impose un sens de deplacement (d'abord vers le haut (-1) puis vers la gauche (-1) puisque start est à droite du tableau
- Donc il fera toujours la même chose quand il recommence sauf si on lui dit qu'il l'à déjà fait.
-il faudrait stocker le chemin fait dans une tableau et le nouveau chemin est comparé à l'ancien. S'il refait la même chose, on lui dit de faire autrement.
+ notre programme ne retient pas le dernier parcours et recommence toujours le meme Ã  cause de $sibling
+ $sibling impose un sens de deplacement (d'abord vers le haut (-1) puis vers la gauche (-1) puisque start est Ã  droite du tableau
+ Donc il fera toujours la mÃªme chose quand il recommence sauf si on lui dit qu'il l'Ã  dÃ©jÃ  fait.
+il faudrait stocker le chemin fait dans une tableau et le nouveau chemin est comparÃ© Ã  l'ancien. S'il refait la mÃªme chose, on lui dit de faire autrement.
 
 _______________________________________________________________________________________________________________________
 
-en melangeant $siblings (shuffle) j'arrive de manière aléatoire à trouver 8 coups mais des fois 17, 22 14 10 16 15 12 11 23 9
-Sans shuffle, j'ai toujours le même resultat en 22 coups :
+en melangeant $siblings (shuffle) j'arrive de maniÃ¨re alÃ©atoire Ã  trouver 8 coups mais des fois 17, 22 14 10 16 15 12 11 23 9
+Sans shuffle, j'ai toujours le mÃªme resultat en 22 coups :
 (2,4) (1,4) (0,4) (0,3) (0,2) (0,1) (1,1) (2,1) (3,1) (4,1) (5,1) (5,0) (4,0) (5,2) (5,3) (4,3) (3,3) (3,2) (2,2) (3,4) (4,4) (1,0) finish in 22 (0,0)
 
 
@@ -186,19 +186,19 @@ object(Path)[5]
 
 
 _____________________________________
-Question, comment le programme sait qu'il à trouvé le plus petit chemin ?
+Question, comment le programme sait qu'il Ã  trouvÃ© le plus petit chemin ?
 
 _____________________________________________________________________________________________________________
 
-J'essaye d'afficher ce que renvoie le programme  à chaque étape ...
+J'essaye d'afficher ce que renvoie le programme  Ã  chaque Ã©tape ...
 Je vois que dans la fonction displayResult (214) le programme doit afficher des "D", "A", "o" ou "x". Il n'affiche que des "x".
 donc c'est que $shortestPath->contains($p) ne contient jamais $p.
 
 Donc quand j'appelle displayResult($map, new Path()), je change new Path() par $sp.
-C'est mieux, j'ai des "o" et des "D" (ou qu'il est dédé ?) mais pas de "A"
+C'est mieux, j'ai des "o" et des "D" (ou qu'il est dÃ©dÃ© ?) mais pas de "A"
 
 _________________________________________________________________________________________________________
-Le programme vient de ce déplacer en diagonale :
+Le programme vient de ce dÃ©placer en diagonale :
 
 2,4) (3,4) (3,3) (3,2) (3,1) (2,1) (2,2) (1,1) (1,0) finish in 9
 
@@ -245,7 +245,7 @@ object(Path)[5]
 
 (0,1) too long (4,1) too long (4,3) too long (4,4) too long (1,4) too long | |o| | | | |o|o|x|x|(1,4)(D)| |x|o|o|x|o| |x|o|o|o|o| | |o|x|o|o| | | | | |x| 
 
-Je n'avais pas vu ça avant. A surveiller. .... En fait ça le fait quelque fois
+Je n'avais pas vu Ã§a avant. A surveiller. .... En fait Ã§a le fait quelque fois
 
 _______________________________________________________________________________
 
@@ -253,7 +253,7 @@ _______________________________________________________________________________
 Maintenant, soit j'ai une erreur ligne 176
 Fatal error: Uncaught TypeError: Return value of ShortestPathCalculator::getShortestPath() must be an instance of Path, null returned in C:\wamp64\www\shortest-path\object-notworking.php on line 176
 
-soit il retourn le chemin qu'il à trouvé mais il est dés fois plus long que 8
+soit il retourn le chemin qu'il Ã  trouvÃ© mais il est dÃ©s fois plus long que 8
 
 _______________________________________________________________________________
 
@@ -280,18 +280,18 @@ _______________________________________________________________________________
 
 ______________________________________________________________________________
 Au point ou j'en suis, j'ai envie de dire que ce n'est pas possible car 
-	- comment le programme sait qu'il à trouvé le plus court chemin ? Si il trouve une solution en 22 coups et qu'apres, il trouve en 18, pourquoi il continuerait ? Et s'il continue, à quel moment il s'arrete de chercher ?
+	- comment le programme sait qu'il Ã  trouvÃ© le plus court chemin ? Si il trouve une solution en 22 coups et qu'apres, il trouve en 18, pourquoi il continuerait ? Et s'il continue, Ã  quel moment il s'arrete de chercher ?
 
-Du coup, j'ai envie de verifier ce que renvoie functional.php en changeant start et end .... ça marche.
+Du coup, j'ai envie de verifier ce que renvoie functional.php en changeant start et end .... Ã§a marche.
 
 ______________________________________________________________________________
 
-il faut que j'arrive à stocker tous les chemins trouvés dans un tableau jusqu'à qu'il n'y en ai plus de nouveau puis afficher le plus court ...
+il faut que j'arrive Ã  stocker tous les chemins trouvÃ©s dans un tableau jusqu'Ã  qu'il n'y en ai plus de nouveau puis afficher le plus court ...
 
 
 Je n'y arrive pas.
 
-J'ai telement foutu le bordel que j'ai repris le code de départ pour recommencer la reflexion avec un peu d'avance quand meme.
+J'ai telement foutu le bordel que j'ai repris le code de dÃ©part pour recommencer la reflexion avec un peu d'avance quand meme.
 
 J'ai l'impression que quoi qu'il arrive, le programme passe par toutes les cases
 
@@ -354,23 +354,23 @@ private function calculShortestPath(Map $map, Point $currentPoint, Point $end, P
         }
     }
 
-Avec ce bout de code, je n'ai pas de sortie de boucle. C'est ce que je notais plus haut : Et s'il continue, à quel moment il s'arrete de chercher ?
+Avec ce bout de code, je n'ai pas de sortie de boucle. C'est ce que je notais plus haut : Et s'il continue, Ã  quel moment il s'arrete de chercher ?
 
-Pourrait on calculer à l'avance en fonction 
+Pourrait on calculer Ã  l'avance en fonction 
 	- du nombre de case impossible
 	- du nombre de case total
-Le nombre de possibilité de chemin ?
-J'ai déjà isAllowed, hasPoint et contains.
+Le nombre de possibilitÃ© de chemin ?
+J'ai dÃ©jÃ  isAllowed, hasPoint et contains.
 
 est ce 23^4 ? 
 du coup je cherche et tombe sur https://fr.wikipedia.org/wiki/Mod%C3%A9lisation_math%C3%A9matique_de_labyrinthe
-Modélisation mathématique de labyrinthe
+ModÃ©lisation mathÃ©matique de labyrinthe
 
 m colonnes par n lignes = (m-1)(n-1) = 4*5 = 20 solutions ?
-Peut être.
-Après un calcule savant qui est dans ma saccoche, il y a (aurait) 37 chemins possibles (y compris ceux qui n'aboutissent pas )
+Peut Ãªtre.
+AprÃ¨s un calcule savant qui est dans ma saccoche, il y a (aurait) 37 chemins possibles (y compris ceux qui n'aboutissent pas )
 
-Donc il faut que je fasse une boucle de 1 à 37 ... c'est nul
+Donc il faut que je fasse une boucle de 1 Ã  37 ... c'est nul
 
 (2,4) (1,4) (0,4) (0,3) (0,2) (0,1) (1,1) (1,0) finish in 8 (2,4) (3,4) (4,4) (4,3) (5,3) (5,2) (5,1) (5,0) too long
 (2,4) (1,4) (0,4) (0,3) (0,2) (0,1) (0,0) (1,0) finish in 8 (2,4) (3,4) (4,4) (4,3) (3,3) (3,2) (3,1) (4,1) too long
@@ -473,6 +473,46 @@ Donc il faut que je fasse une boucle de 1 à 37 ... c'est nul
 Maintenant, il semblerait qu'une fois que le programme trouve "finished in 8", il affiche soit "too long" soit finished in 8
 SOLUTION: go to php.ini and comment out php_xdebug-
 
+private function calculShortestPath(Map $map, Point $currentPoint, Point $end, Path $currentPath):void
+    {
+        
+            debug(PHP_EOL . ' ' . $currentPoint);
+
+            $currentPath->addPoint($currentPoint);
+
+            if ($currentPoint->equals($end)) {
+              
+                debug(' finish in ' . $currentPath->length().'<br>');
+                $this->shortestPath = $currentPath;
+
+                $this->calculShortestPath($this->map, $this->start, $this->end, new Path());
+              
+              
+            }
+
+            if (null !== $this->shortestPath && $currentPath->length() >= $this->shortestPath->length()) {
+                debug(' too long<br>');
+                //return;
+                $this->calculShortestPath($this->map, $this->start, $this->end, new Path());
+            }
+
+            $siblings = [
+                new Point($currentPoint->getRow() - 1, $currentPoint->getColumn()),
+                new Point($currentPoint->getRow() + 1, $currentPoint->getColumn()),
+                new Point($currentPoint->getRow(), $currentPoint->getColumn() - 1),
+                new Point($currentPoint->getRow(), $currentPoint->getColumn() + 1),
+            ];
+
+            shuffle($siblings);
+
+            foreach ($siblings as $point) {
+                if ($map->hasPoint($point) && $map->isAllowed($point) && !$currentPath->contains($point)) {
+                    $this->calculShortestPath($map, $point, $end, $currentPath);
+                }
+            }
+            
+       
+    }
 
 
 
